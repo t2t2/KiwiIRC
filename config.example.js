@@ -232,6 +232,14 @@ conf.client_themes = [
     'dctv_alpha'
 ];
 
+/**
+ * Client Settings per request host.
+ * If you don't proxy webirc via something make sure to include the port.
+ * www. is auto-stripped
+ */
+conf.client_host = {
+    'default': {}
+};
 
 // If set, the client may only connect to this 1 IRC server
 //conf.restrict_server = "irc.kiwiirc.com";

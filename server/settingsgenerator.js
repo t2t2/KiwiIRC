@@ -1,7 +1,8 @@
 var fs          = require('fs'),
     crypto      = require('crypto'),
     Promise     = require('es6-promise').Promise,
-    config      = require('./configuration.js');
+    config      = require('./configuration.js'),
+    _           = require('lodash');
 
 
 module.exports.generate = generateSettings;
@@ -10,32 +11,62 @@ module.exports.get = getSettings;
 
 // Cache for settings.json
 var cached_settings = {
-    debug: {
-        hash: '',
-        settings: ''
-    },
-    production: {
-        hash: '',
-        settings: ''
+    'default': {
+        debug: {
+            hash: '',
+            settings: ''
+        },
+        production: {
+            hash: '',
+            settings: ''
+        }
     }
 };
 
 // Clear the settings cache when the settings change
 config.on('loaded', function () {
-    cached_settings.debug.settings = cached_settings.production.settings = '';
-    cached_settings.debug.hash = cached_settings.production.hash = '';
+    _.forEach(cached_settings, function (value, host) {
+        cached_settings[host] = {
+            debug: {
+                hash: '',
+                settings: ''
+            },
+            production: {
+                hash: '',
+                settings: ''
+            }
+        };
+    });
 });
 
 
 
 
-function getSettings(debug, callback) {
-    var settings = cached_settings[debug ? 'debug' : 'production'];
+function getSettings(host, debug, callback) {
+
+    // Check if host has specific settings
+    if(!config.get().client_host || !config.get().client_host[host]) {
+        host = 'default';
+    }
+    if(!cached_settings[host]) {
+        cached_settings[host] = {
+            debug: {
+                hash: '',
+                settings: ''
+            },
+            production: {
+                hash: '',
+                settings: ''
+            }
+        };
+    }
+
+    var settings = cached_settings[host][debug ? 'debug' : 'production'];
 
     // Generate the settings if we don't have them cached as yet
     if (settings.settings === '') {
-        generateSettings(debug).then(function (settings) {
-            cached_settings[debug ? 'debug' : 'production'] = settings;
+        generateSettings(host, debug).then(function (settings) {
+            cached_settings[host][debug ? 'debug' : 'production'] = settings;
             callback(null, settings);
         }, function (err) {
             callback(err);
@@ -50,7 +81,7 @@ function getSettings(debug, callback) {
  * Generate a settings object for the client.
  * Settings include available translations, default client config, etc
  */
-function generateSettings(debug) {
+function generateSettings(host, debug) {
     var vars = {
             server_settings: {},
             client_plugins: [],
@@ -78,6 +109,12 @@ function generateSettings(debug) {
     // Any client default settings?
     if (config.get().client) {
         vars.server_settings.client = config.get().client;
+    }
+
+    // Any host specific settings?
+    if (config.get().client_host && config.get().client_host[host]) {
+        // clone settings to avoid overwrites
+        vars.server_settings.client = _.merge({}, vars.server_settings.client, config.get().client_host[host]);
     }
 
     // Client transport specified?

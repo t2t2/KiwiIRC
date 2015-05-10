@@ -166,7 +166,15 @@ function serveSettings(request, response) {
         }
     }
 
-    SettingsGenerator.get(debug, function(err, settings) {
+    var host = 'default';
+    if(request && request.headers.host && request.headers.host.match(/^[\w\.\:]+$/)) {
+        host = request.headers.host;
+        if(host.startsWith('www.')) {
+            host = host.substr(4);
+        }
+    }
+
+    SettingsGenerator.get(host, debug, function(err, settings) {
         if (err) {
             winston.error('Error generating settings', err);
             response.writeHead(500, 'Internal Server Error');
