@@ -10,3 +10,4 @@ This fork is used for [chatrealm](http://irc.chatrealm.net) & [dctv](http://diam
 * Make it easier for themes to use flexbox (4039e46850)
 * Fix IPv6 connections ([@see](https://forums.unrealircd.org/viewtopic.php?t=8382)) (4d37824cb7)
 
+* Allow setting client settings per host
