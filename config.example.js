@@ -166,7 +166,7 @@ conf.http_proxies = ["127.0.0.1/32"];
 conf.http_proxy_ip_header = "x-forwarded-for";
 
 // Base HTTP path to the KIWI IRC client (eg. /kiwi)
-conf.http_base_path = "/kiwi";
+conf.http_base_path = "/";
 
 
 /*
@@ -202,11 +202,11 @@ conf.client = {
     server: 'irc.kiwiirc.com',
     port:    6697,
     ssl:     true,
-    channel: '#kiwiirc',
+    channel: '#chat',
     channel_key: '',
-    nick:    'kiwi_?',
+    nick:    'web_?',
     settings: {
-        theme: 'relaxed',
+        theme: 'dctv_alpha',
         text_theme: 'default',
         channel_list_style: 'tabs',
         scrollback: 250,
@@ -228,7 +228,8 @@ conf.client_themes = [
     'relaxed',
     'mini',
     'cli',
-    'basic'
+    'basic',
+    'dctv_alpha'
 ];
 
 
