@@ -13,3 +13,14 @@
 </script>
 <noscript><p><img src="//stats.t2t2.eu/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
+<script>
+    (function() {
+        var currentTheme = kiwi.settings.get('theme');
+        var deprecated = ['dctv'];
+
+        if(deprecated.indexOf(currentTheme) >= -1) {
+            kiwi.settings.set('theme', 'chatrealm_dark_mono');
+            kiwi.settings.save();
+        }
+    })();
+</script>
