@@ -229,7 +229,11 @@ conf.client_themes = [
     'mini',
     'cli',
     'basic',
-    'dctv_alpha'
+    'dctv_alpha',
+    'chatrealm_dark_mono',
+    'chatrealm_dark_sans',
+    'chatrealm_light_mono',
+    'chatrealm_light_sans'
 ];
 
 /**

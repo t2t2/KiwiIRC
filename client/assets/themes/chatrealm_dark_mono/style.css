@@ -1,0 +1,835 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700|Inconsolata);
+
+/* Media queries
+@media (min-width : 601px) {
+
+}
+@media (min-width : 993px) {
+
+}
+*/
+
+body {
+    background-color: #212121;
+    box-sizing: border-box;
+    color: #FAFAFA;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+
+#kiwi button {
+    background-color: #03A9F4;
+    border: none;
+    cursor: pointer;
+    display: block;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    transition: background-color 0.5s;
+}
+
+#kiwi a {
+    color: #80D8FF;
+}
+
+#kiwi a:hover, #kiwi a:focus {
+    color: #00B0FF;
+}
+
+#kiwi button:hover, #kiwi button:focus {
+    background-color: #4FC3F7;
+}
+
+#kiwi button:active {
+    background-color: #B3E5FC;
+}
+
+#kiwi button[disabled] {
+    background-color: #E0E0E0;
+    cursor: pointer;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#kiwi {
+    background-color: #212121;
+    color: #FAFAFA;
+}
+
+/* Toolbar */
+
+#kiwi .toolbar {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #03A9F4;
+}
+
+/* Tools */
+#kiwi .toolbar .app_tools {
+    background-color: #0091EA;
+    font-size: 16px;
+    line-height: 1em;
+}
+
+#kiwi .toolbar .app_tools:before {
+    content: "\f0c9"; /* .fa-bars */
+    display: inline-block;
+    font-family: "FontAwesome", sans-serif;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 36px;
+}
+
+#kiwi .toolbar .app_tools > .main {
+    background-color: #0091EA;
+    font-size: 32px;
+    line-height: 1em;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+    transition: max-height 0.5s 0.2s; /* Delay on mouse leave */
+}
+
+#kiwi .toolbar .app_tools:hover > .main {
+    max-height: 208px; /* room for 4 items */
+    transition: max-height 0.5s;
+}
+
+#kiwi .toolbar .app_tools > .main > li {
+    display: block;
+}
+
+#kiwi .toolbar .app_tools > .main > li > a,
+#kiwi .toolbar .app_tools > .main > li > i {
+    display: inline-block;
+    height: 52px;
+    padding: 10px;
+    width: 52px;
+    transition: background-color 0.5s;
+}
+
+#kiwi .toolbar .app_tools > .main > li > a:hover,
+#kiwi .toolbar .app_tools > .main > li > i:hover {
+    background-color: #00B0FF;
+}
+
+#kiwi .toolbar .app_tools img {
+    height: 32px;
+    margin: 0;
+    vertical-align: top;
+    width: 32px;
+}
+
+/* Tabs */
+#kiwi .toolbar .tabs {
+    align-self: flex-end;
+    flex: 1 0 0;
+    margin-right: 0;
+}
+
+#kiwi .toolbar .tabs > .connections, #kiwi .toolbar .tabs > .panellist {
+    border-bottom: 1px solid #0091EA;
+    display: flex;
+}
+
+#kiwi .toolbar .connections .connection {
+    display: block;
+    float: none;
+}
+
+#kiwi .toolbar .connections .panellist {
+    display: flex;
+}
+
+#kiwi .toolbar .panellist li {
+    border-bottom: 0 solid #0091EA;
+    float: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    line-height: 15px;
+    height: 34px;
+    margin: 0;
+    padding: 8px 15px;
+    transition: background-color 0.5s;
+}
+
+#kiwi .toolbar .panellist li:hover {
+    background-color: #29B6F6;
+}
+
+#kiwi .toolbar .panellist li.active {
+    border-bottom-width: 8px;
+    font-weight: bold;
+    padding-bottom: 0;
+    padding-right: 10px;
+    transition: border-bottom-width 0.2s linear, padding-bottom 0.2s linear, background-color 0.5s;
+}
+
+#kiwi .toolbar .panellist .alert_activity, #kiwi .toolbar .panellist .alert_action {
+    font-weight: normal;
+}
+
+#kiwi .toolbar .panellist li .activity {
+    background-color: #D50000;
+    display: inline;
+    font-size: 11px;
+    line-height: 1em;
+    margin-left: 7px;
+    padding: 2px 5px;
+}
+
+#kiwi .toolbar .panellist li .activity.zero {
+    display: none;
+}
+
+#kiwi .toolbar .panellist li .part {
+    color: #D50000;
+    margin-left: 7px;
+    position: static;
+}
+
+#kiwi .toolbar .panellist li .part:before {
+    content: "\f00d"; /* .fa-times */
+}
+
+/* Topic & Status Message */
+#kiwi .toolbar .topic, #kiwi .toolbar .status_message {
+    flex: 1 100%;
+    width: 100%;
+}
+
+#kiwi .toolbar .topic {
+    background-color: #0091EA;
+}
+
+#kiwi .toolbar .topic div {
+    line-height: 1.5em;
+    padding: 0.2em 1em;
+    text-align: center;
+}
+
+#kiwi .toolbar .topic:hover div {
+    background-color: #0091EA;
+    min-height: 1.5em;
+    white-space: pre-wrap; word-wrap: break-word;
+    z-index: 10;
+    height: auto;
+    bottom: auto;
+}
+
+#kiwi .toolbar .status_message {
+    color: #000;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    padding: 0.3em 1em;
+}
+
+/* Panels */
+
+/* Messages */
+#kiwi .messages {
+    font-family: 'Inconsolata', Monaco, Consolas, 'Andale Mono', monospace;
+    font-size: 15px;
+    line-height: 1.4em;
+}
+
+#kiwi .messages .msg {
+    padding: 3px 6px 3px 6px;
+}
+
+#kiwi.timestamps .messages .msg { padding-left: 5em; }
+
+#kiwi .messages .msg + .msg:not(.repeated_nick) {
+    border-top: 1px solid #424242;
+}
+
+#kiwi .messages .msg:last-child {
+    border-bottom: 1px solid #424242;
+}
+
+#kiwi .messages .msg .time {
+    color: #616161;
+    display: none;
+    float: left;
+    margin-left: -5em;
+    padding-left: 3px;
+    width: 5em;
+}
+
+#kiwi.timestamps .messages .msg .time { display: block; }
+
+#kiwi .messages .msg .nick {
+    margin-right: 0.5rem;
+}
+
+#kiwi .messages .msg .nick:before { content: "<"; }
+
+#kiwi .messages .msg .nick:after { content: ">"; }
+
+#kiwi .messages .msg.repeated_nick .nick { display: none; }
+
+@media (min-width: 720px) {
+    #kiwi .messages .msg.repeated_nick .nick { display: inline; visibility: hidden; }
+}
+
+#kiwi .messages .msg .text { white-space: pre-wrap; word-wrap: break-word; }
+
+#kiwi .messages .msg.action .nick { display: none !important; }
+
+#kiwi .messages .msg.action .text { color: #EEEEEE; font-style: italic; }
+
+#kiwi .messages .msg.action.join .text { color: #43A047; }
+
+#kiwi .messages .msg.action.part .text,
+#kiwi .messages .msg.action.quit .text,
+#kiwi .messages .msg.action.kick .text { color: #B71C1C; }
+
+#kiwi .messages .msg.topic {
+    padding: 10px 5px;
+}
+
+#kiwi .messages .msg.topic .text {
+    background: #BF360C;
+    border-radius: 5px;
+    display: block;
+    padding: 2px 5px;
+}
+
+#kiwi .messages .msg.topic .time,
+#kiwi .messages .msg.topic .nick { display: none !important; }
+
+#kiwi .messages .msg.motd {
+    background-color: #FFF;
+    color: #000000;
+    padding: 5px;
+}
+
+#kiwi .messages .msg.motd:before {
+    border-bottom: 1px solid #EEEEEE;
+    content: "MOTD";
+    display: block;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#kiwi .messages .msg.motd .time, #kiwi .messages .msg.motd .nick { display: none !important; }
+
+#kiwi .messages .msg.whois .text {
+    border-left: 1px solid #424242;
+    color: #E0E0E0;
+    padding-top: 5px; padding-bottom: 5px; padding-left: 6px;
+    margin-top: -5px; margin-bottom: -5px;
+}
+
+#kiwi .messages .msg.error .text {
+    color: #F44336;
+}
+
+#kiwi .messages .msg.highlight {
+    transition: background 0.3s;
+    background: #292929;
+}
+
+#kiwi .messages .msg.global_nick_highlight {
+    transition: background 0.3s;
+    background: #333333;
+}
+
+#kiwi .messages .last_seen {
+    border-bottom: 2px solid #EF5350;
+}
+
+/* Let's get social! */
+
+#kiwi .messages .msg .media { margin-left: 0.5em; }
+
+#kiwi .messages .msg .media .media_close { font-size: 0.9em; }
+
+#kiwi .messages .msg .media .media_content { margin: 10px 0 0 10px; overflow: hidden; }
+
+#kiwi .messages .msg .media .media_content img { padding: 3px; border: 1px solid gray; }
+
+#kiwi .messages .msg .media .media_content > .content {
+    background: white;
+    color: #000000;
+    overflow: hidden;
+    padding: 10px;
+    border: #DDD 1px solid;
+    border-top-color: #EEE;
+    border-bottom-color: #BBB;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    float: left;
+}
+
+#kiwi .messages .msg .media.twitter .media_content > .content {
+    background: transparent;
+    border: none;
+    overflow: hidden;
+    box-shadow: none;
+    padding: 0;
+}
+
+#kiwi .messages .msg .media.reddit .thumbnail_nsfw {
+    display: inline-block;
+    float: left;
+}
+
+#kiwi .messages .msg .media.reddit .thumbnail { float: left; margin-right: 0.5em; }
+
+/* Autocomplete */
+#kiwi .autocomplete {
+    position: absolute;
+    left: 9em;
+    right: 0;
+    bottom: 100%;
+    color: #424242;
+    padding: 0.1em 0.1em 0 0.1em;
+    border: 1px solid #CCC;
+    background: #EEE;
+    overflow-y: auto;
+    display: none;
+}
+
+#kiwi.narrow .autocomplete {
+    left: 0;
+}
+
+#kiwi .autocomplete-item {
+    border: 1px solid #CCC;
+    border-bottom: none;
+    background: #FFF;
+    padding: 5px 20px;
+    list-style: none;
+}
+
+#kiwi .autocomplete-item.selected { background: #80D8FF; }
+
+#kiwi .autocomplete-item .word { font-weight: bold; }
+
+#kiwi .autocomplete-item .matches { font-size: 0.9em; margin-left: 2em; }
+
+#kiwi .autocomplete-item .actions { float: right; font-size: 0.9em; margin-right: 2em; }
+
+#kiwi .autocomplete-item .actions a { margin-left: 1em; color: #00B0FF; }
+
+#kiwi .autocomplete-item .description {
+    font-size: 0.9em;
+    margin-left: 2em;
+}
+
+/* Input */
+#kiwi .controlbox .input {
+    background-color: #424242;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    line-height: 30px;
+}
+
+#kiwi .controlbox .input .nick {
+    padding: 0 10px 0 5px;
+}
+
+#kiwi.narrow .controlbox .input .nick {
+    display: none;
+}
+
+#kiwi .controlbox .input .input_wrap {
+    flex-grow: 1;
+}
+
+#kiwi .controlbox .input .inp {
+    line-height: 24px;
+    outline: none; resize: none;
+    overflow: hidden;
+    padding: 2px 5px;
+    height: 100%; width: 100%;
+    display: block;
+}
+
+#kiwi .controlbox .nickchange {
+    padding: 10px;
+    left: 0;
+    background: #121314;
+    color: #EEEEEE;
+}
+
+#kiwi .controlbox .nickchange input { padding: 0.3em 0.5em; margin-left: 0.5em; width: 165px; }
+
+#kiwi .controlbox .nickchange button { padding: 0.5em; margin: 0 0.5em 0 1em; display: inline-block; }
+
+/* Sidebar */
+#kiwi .right_bar {
+    border-left: 2px solid #616161;
+}
+
+#kiwi .right_bar.disabled { width: 0 !important; }
+
+#kiwi.narrow .right_bar { width: 100% !important; }
+
+#kiwi.narrow .right_bar.disabled { width: 0 !important; }
+
+#kiwi .right-bar-toggle {
+    background-color: #40C4FF;
+}
+
+#kiwi .right-bar-content {
+    position: static;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Channel tools */
+#kiwi .channel_tools {
+    background-color: #191919;
+    border-bottom: 1px solid #424242;
+    color: #9E9E9E;
+    display: flex;
+    font-size: 24px;
+    line-height: 24px;
+    position: static;
+}
+
+#kiwi .channel_tools i {
+    flex-grow: 1;
+    padding: 10px 0;
+    transition: color 0.5s;
+}
+
+#kiwi .channel_tools i:hover {
+    color: #E0E0E0;
+}
+
+#kiwi .memberlists {
+    background-color: #191919;
+    flex-grow: 1;
+    padding-top: 0;
+    position: static;
+}
+
+#kiwi .memberlists .meta {
+    color: #616161;
+    padding: 8px 8px 10px;
+}
+
+#kiwi .memberlists ul li a.nick {
+    display: block;
+    color: #EEEEEE;
+    height: 36px;
+    padding: 8px 8px 10px 24px;
+    overflow: hidden;
+}
+
+#kiwi .memberlists ul li a.nick:hover {
+    background-color: #212121;
+}
+
+#kiwi .memberlists ul li a.nick .prefix {
+    float: left;
+    display: block;
+    font-size: 10px;
+    line-height: 36px;
+    margin: -8px 6px -8px -24px;
+    height: 36px;
+    text-align: center;
+    width: 18px;
+}
+
+/* Most important modes towards the bottom - they override the top ones! */
+#kiwi .memberlists ul li.mode.v .prefix { background: #424242; }
+
+#kiwi .memberlists ul li.mode.h .prefix { background: #B5B447; }
+
+#kiwi .memberlists ul li.mode.o .prefix { background: #33691E; }
+
+#kiwi .memberlists ul li.mode.a .prefix { background: #B54747; }
+
+#kiwi .memberlists ul li.mode.q .prefix { background: #8547B5; }
+
+/* Server Select */
+#kiwi .server_select {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 20px;
+    width: 90% !important;
+}
+
+@media (min-width: 601px) {
+    #kiwi .server_select { width: 85% !important; }
+}
+
+@media (min-width: 993px) {
+    #kiwi .server_select { width: 70% !important; }
+}
+
+#kiwi .server_select .side_panel { display: none; }
+
+#kiwi .server_select .server_details { width: 100% !important; }
+
+#kiwi .server_select .status {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#kiwi .server_select .status .fa {
+    margin-left: 10px;
+}
+
+#kiwi .server_select, #kiwi .server_select table { width: 100%; }
+
+#kiwi .server_select tr {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#kiwi .server_select td, #kiwi .server_select input, #kiwi .server_select label { display: block; }
+
+#kiwi .server_select label {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.3em;
+    margin-top: 10px;
+}
+
+#kiwi .server_select input {
+    font-size: 28px;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+#kiwi .server_select input[type=checkbox] {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+#kiwi .server_select .basic tr.channel .fa-key {
+    font-size: 28px;
+    line-height: 1.2em;
+}
+
+#kiwi .server_select .have_pass label, #kiwi .server_select .ssl td {
+    display: inline-block;
+}
+
+#kiwi .server_select .ssl input {
+    margin-top: 16px;
+}
+
+#kiwi .server_select button {
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#kiwi .server_select .show_more {
+    font-size: 16px;
+}
+
+#kiwi .server_select .kiwi_logo {
+    display: inline-block;
+    margin: 10px 0 0 auto;
+}
+
+#kiwi .server_select .kiwi_logo h1 {
+    font-size: 15px;
+    margin: 0;
+}
+
+#kiwi .server_select .kiwi_logo img {
+    height: 15px;
+    width: 15px;
+}
+
+/* Applet - chanlist */
+
+#kiwi .applet_chanlist {
+    margin: 1em;
+}
+
+#kiwi .applet_chanlist table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#kiwi .applet_chanlist thead {
+    text-align: center;
+    border-bottom: 1px solid #424242;
+}
+
+#kiwi .applet_chanlist thead a {
+    display: block;
+    padding: 0.5em;
+    text-align: center;
+}
+
+#kiwi .applet_chanlist tbody td {
+    border-right: 1px solid #424242;
+    border-bottom: 1px solid #424242;
+    padding: 0.3em 1em;
+}
+
+#kiwi .applet_chanlist tbody td:last-child { border-right: none; }
+
+#kiwi .applet_chanlist .chanlist_name .chan { display: block; }
+
+/* Applet - Settings */
+
+#kiwi .settings_container .thumbnail .caption {
+    max-width: 75px;
+}
+
+/* Popout Menus */
+#kiwi .ui_menu {
+    background-color: #FAFAFA;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    color: #424242;
+    font-size: 1.2em;
+}
+
+#kiwi .ui_menu .ui_menu_title {
+    padding: 16px 12px;
+}
+
+#kiwi .ui_menu .ui_menu_title {
+    background-color: #FAFAFA;
+    color: #757575;
+    font-weight: bold;
+}
+
+#kiwi .ui_menu .ui_menu_content {
+    padding: 0;
+}
+
+#kiwi .ui_menu a {
+    color: #424242;
+}
+
+#kiwi .ui_menu .ui_menu_foot {
+    padding: 8px 10px;
+}
+
+#kiwi .userbox {
+    width: auto;
+}
+
+#kiwi .userbox a {
+    background-color: #FAFAFA;
+    color: #424242;
+    display: block;
+    padding: 10px 16px 10px 36px;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+#kiwi .userbox a:hover, #kiwi .userbox a:focus {
+    background-color: #E0E0E0;
+}
+
+#kiwi .userbox a i {
+    margin-left: -24px;
+    margin-right: 8px;
+    width: 16px;
+}
+
+#kiwi .channel_info .channel-banlist table { margin-top: 10px; border-spacing: 10px 3px; }
+
+#kiwi .channel_info .channel-banlist thead { font-style: italic; }
+
+#kiwi .channel_info .remove-ban:hover { color: #900; }
+
+/* Notifications */
+
+#kiwi .notification {
+    /* .show class reveals this element */
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    transition: max-height 1s;
+    top: auto;
+    left: 10%;
+    right: 10%;
+    bottom: 30px;
+    font-size: 1.3em;
+    width: 80%;
+    display: block;
+    color: #DBDBDB;
+    text-shadow: 0 -1px black;
+    background: #424242;
+    border-top: 5px solid #0277BD;
+}
+
+#kiwi .notification.show { max-height: 500px; }
+
+#kiwi .notification .close {
+    bottom: auto;
+    font-size: 2em;
+    margin: 0;
+    right: 10px;
+    left: auto;
+    text-align: right;
+    top: 0;
+    width: 1em;
+}
+
+#kiwi .notification .close:hover { color: #DBDBDB; }
+
+/* Channel list Treeview */
+
+#kiwi.chanlist_treeview .panels { left: 160px; }
+
+#kiwi.chanlist_treeview .toolbar { position: static; }
+
+#kiwi.chanlist_treeview .toolbar .tabs {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: 0;
+    background-color: #0091EA;
+    height: auto;
+    width: 160px;
+    overflow-y: auto;
+}
+
+#kiwi.chanlist_treeview .toolbar .panellist, #kiwi.chanlist_treeview .toolbar .connections {
+    display: block;
+}
+
+#kiwi.chanlist_treeview .toolbar .panellist li {
+    border-right: 0 solid #01579B;
+    display: block;
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+}
+
+#kiwi.chanlist_treeview .toolbar .panellist li:hover {
+    background-color: #03A9F4;
+}
+
+#kiwi.chanlist_treeview .toolbar .panellist li.active {
+    border-bottom: 0;
+    padding-bottom: 8px;
+    border-right-width: 10px;
+    padding-right: 5px;
+    transition: border-right-width 0.2s linear, padding-right 0.2s linear, background-color 0.5s;
+}
+
+#kiwi.chanlist_treeview .toolbar .topic {
+    flex: auto;
+    flex-grow: 1;
+    min-height: 36px;
+    width: 0;
+}
