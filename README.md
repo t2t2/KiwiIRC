@@ -6,5 +6,7 @@ the commit ID's in the list bellow.
 
 ## Modifications (Only generic are listed)
 
-* Allow setting client settings per host (d4ee03c870)
-* Theme loading is cachebusted on new build (4aaa5fe19e)
+* Allow setting client settings per host (f9feec4488)
+* Theme loading is cachebusted on new build (c3bbbd8673)
+* Allow theme names to differ from directory (675c8b2f7c)
+* Make it easier for themes to use flexbox (4039e46850)
