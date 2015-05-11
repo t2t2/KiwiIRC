@@ -169,7 +169,7 @@ function serveSettings(request, response) {
     var host = 'default';
     if(request && request.headers.host && request.headers.host.match(/^[\w\.\:]+$/)) {
         host = request.headers.host;
-        if(host.startsWith('www.')) {
+        if(host.indexOf('www.') === 0) {
             host = host.substr(4);
         }
     }
