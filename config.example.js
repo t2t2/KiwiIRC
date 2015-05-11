@@ -211,7 +211,7 @@ conf.client = {
         channel_list_style: 'tabs',
         scrollback: 250,
         show_joins_parts: true,
-        show_timestamps: false,
+        show_timestamps: true,
         use_24_hour_timestamps: true,
         mute_sounds: false,
         show_emoticons: true,

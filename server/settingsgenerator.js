@@ -144,10 +144,10 @@ function generateSettings(host, debug) {
 
 
 function addThemes() {
-    return (config.get().client_themes || ['relaxed']).reduce(function (prom, theme) {
+    return (config.get().client_themes || ['relaxed']).reduce(function (prom, theme_dir) {
         return prom.then(function (themes) {
             return new Promise(function readThemeInfo(resolve, reject) {
-                fs.readFile(global.config.public_http + '/assets/themes/' + theme.toLowerCase() + '/theme.json', function (err, theme_json) {
+                fs.readFile(global.config.public_http + '/assets/themes/' + theme_dir.toLowerCase() + '/theme.json', function (err, theme_json) {
                     var theme;
                     if (err) {
                         return reject(err);
@@ -158,6 +158,7 @@ function addThemes() {
                     } catch (e) {
                         return reject(e);
                     }
+                    theme.directory = theme_dir.toLowerCase();
 
                     themes.push(theme);
                     resolve(themes);

@@ -242,7 +242,7 @@
     </script>
 
     <script type="text/html" id="tmpl_theme_thumbnail">
-        <a class="thumbnail" data-setting="theme" data-value="<%= name.toLowerCase() %>" href="#">
+        <a class="thumbnail" data-setting="theme" data-value="<%= directory %>" href="#">
             <div class="thumbnail_wrapper"><div class="theme_color" style="background-color: <%= thumbnail_colour %>;"></div></div>
             <div class="caption"><u><%= name %></u></div>
         </a>
@@ -582,8 +582,8 @@
                 // Load themes
                 if (opts.themes) {
                     $.each(opts.themes, function (theme_idx, theme) {
-                        var disabled = (opts.server_settings.client.settings.theme.toLowerCase() !== theme.name.toLowerCase());
-                        var link = $.parseHTML('<link rel="stylesheet" type="text/css" data-theme href="'+ opts.base_path + '/assets/themes/' + theme.name.toLowerCase() + '/style.css?t=<%build_time%>" title="' + theme.name.toLowerCase() + '" />');
+                        var disabled = (opts.server_settings.client.settings.theme.toLowerCase() !== theme.directory),
+                        var link = $.parseHTML('<link rel="stylesheet" type="text/css" data-theme href="'+ opts.base_path + '/assets/themes/' + theme.directory + '/style.css?t=<%build_time%>" title="' + theme.name.toLowerCase() + '" />');
                         
                         $(link).appendTo($('head'));
                         if (disabled) {
