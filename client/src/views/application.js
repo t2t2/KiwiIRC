@@ -311,11 +311,23 @@ _kiwi.view.Application = Backbone.View.extend({
         var that = this;
 
         if (!instant) {
-            this.$el.find('.toolbar').slideDown({queue: false, duration: 400, step: $.proxy(this.doLayout, this)});
-            $('#kiwi .controlbox').slideDown({queue: false, duration: 400, step: $.proxy(this.doLayout, this)});
+            this.$el.find('.toolbar').slideDown({queue: false, duration: 400, step: $.proxy(this.doLayout, this),
+                complete: function () {
+                    $(this).css('display', ''); // Revert to theme value
+                }
+            });
+            $('#kiwi .controlbox').slideDown({queue: false, duration: 400, step: $.proxy(this.doLayout, this),
+                complete: function () {
+                    $(this).css('display', ''); // Revert to theme value
+                }
+            });
         } else {
-            this.$el.find('.toolbar').slideDown(0);
-            $('#kiwi .controlbox').slideDown(0);
+            this.$el.find('.toolbar').slideDown(0, function () {
+                $(this).css('display', ''); // Revert to theme value
+            });
+            $('#kiwi .controlbox').slideDown(0, function () {
+                $(this).css('display', ''); // Revert to theme value
+            });
             this.doLayout();
         }
     },
