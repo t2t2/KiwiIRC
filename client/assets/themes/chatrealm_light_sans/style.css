@@ -10,7 +10,7 @@
 */
 
 body {
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
     box-sizing: border-box;
     color: #212121;
     font-family: "Roboto", sans-serif;
@@ -29,11 +29,11 @@ body {
 }
 
 #kiwi a {
-    color: #00b0ff;
+    color: #00B0FF;
 }
 
 #kiwi a:hover, #kiwi a:focus {
-    color: #0091ea;
+    color: #0091EA;
 }
 
 #kiwi button:hover, #kiwi button:focus {
@@ -54,7 +54,7 @@ body {
 }
 
 #kiwi {
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
     color: #212121;
 }
 
@@ -245,15 +245,15 @@ body {
 #kiwi.timestamps .messages .msg { padding-left: 5em; }
 
 #kiwi .messages .msg + .msg:not(.repeated_nick) {
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #E0E0E0;
 }
 
 #kiwi .messages .msg:last-child {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 #kiwi .messages .msg .time {
-    color: #9e9e9e;
+    color: #9E9E9E;
     display: none;
     float: left;
     margin-left: -5em;
@@ -283,7 +283,7 @@ body {
 
 #kiwi .messages .msg.action .text { color: #424242; font-style: italic; }
 
-#kiwi .messages .msg.action.join .text { color: #43a047; }
+#kiwi .messages .msg.action.join .text { color: #43A047; }
 
 #kiwi .messages .msg.action.part .text,
 #kiwi .messages .msg.action.quit .text,
@@ -294,7 +294,7 @@ body {
 }
 
 #kiwi .messages .msg.topic .text {
-    background: #BF360C;
+    background: #FFAB91;
     border-radius: 5px;
     display: block;
     padding: 2px 5px;
@@ -332,16 +332,16 @@ body {
 
 #kiwi .messages .msg.highlight {
     transition: background 0.3s;
-    background: #eeeeee;
+    background: #EEEEEE;
 }
 
 #kiwi .messages .msg.global_nick_highlight {
     transition: background 0.3s;
-    background: #e0e0e0;
+    background: #E0E0E0;
 }
 
 #kiwi .messages .last_seen {
-    border-bottom: 2px solid #ef9a9a;
+    border-bottom: 2px solid #EF9A9A;
 }
 
 /* Let's get social! */
@@ -427,7 +427,7 @@ body {
 
 /* Input */
 #kiwi .controlbox .input {
-    background-color: #eeeeee;
+    background-color: #EEEEEE;
     display: flex;
     flex-direction: row;
     height: 30px;
@@ -458,7 +458,7 @@ body {
 #kiwi .controlbox .nickchange {
     padding: 10px;
     left: 0;
-    background: #e0e0e0;
+    background: #E0E0E0;
     color: #212121;
 }
 
@@ -468,7 +468,7 @@ body {
 
 /* Sidebar */
 #kiwi .right_bar {
-    border-left: 2px solid #bdbdbd;
+    border-left: 2px solid #BDBDBD;
     z-index: 0;
 }
 
@@ -491,8 +491,8 @@ body {
 
 /* Channel tools */
 #kiwi .channel_tools {
-    background-color: #eeeeee;
-    border-bottom: 1px solid #bdbdbd;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #BDBDBD;
     color: #9E9E9E;
     display: flex;
     font-size: 24px;
@@ -511,7 +511,7 @@ body {
 }
 
 #kiwi .memberlists {
-    background-color: #eeeeee;
+    background-color: #EEEEEE;
     flex-grow: 1;
     padding-top: 0;
     position: static;
@@ -531,7 +531,7 @@ body {
 }
 
 #kiwi .memberlists ul li a.nick:hover {
-    background-color: #e0e0e0;
+    background-color: #E0E0E0;
 }
 
 #kiwi .memberlists ul li a.nick .prefix {
@@ -546,15 +546,15 @@ body {
 }
 
 /* Most important modes towards the bottom - they override the top ones! */
-#kiwi .memberlists ul li.mode.v .prefix { background: #e0e0e0; }
+#kiwi .memberlists ul li.mode.v .prefix { background: #E0E0E0; }
 
-#kiwi .memberlists ul li.mode.h .prefix { background: #fff59d; }
+#kiwi .memberlists ul li.mode.h .prefix { background: #FFF59D; }
 
-#kiwi .memberlists ul li.mode.o .prefix { background: #a5d6a7; }
+#kiwi .memberlists ul li.mode.o .prefix { background: #A5D6A7; }
 
-#kiwi .memberlists ul li.mode.a .prefix { background: #ef9a9a; }
+#kiwi .memberlists ul li.mode.a .prefix { background: #EF9A9A; }
 
-#kiwi .memberlists ul li.mode.q .prefix { background: #ce93d8; }
+#kiwi .memberlists ul li.mode.q .prefix { background: #CE93D8; }
 
 /* Server Select */
 #kiwi .server_select {
@@ -667,7 +667,7 @@ body {
 
 #kiwi .applet_chanlist thead {
     text-align: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 #kiwi .applet_chanlist thead a {
@@ -677,8 +677,8 @@ body {
 }
 
 #kiwi .applet_chanlist tbody td {
-    border-right: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
     padding: 0.3em 1em;
 }
 
@@ -746,7 +746,9 @@ body {
 }
 
 #kiwi .channel_info .channel-banlist table { margin-top: 10px; border-spacing: 10px 3px; }
+
 #kiwi .channel_info .channel-banlist thead { font-style: italic; }
+
 #kiwi .channel_info .remove-ban:hover { color: #900; }
 
 /* Notifications */
@@ -758,22 +760,21 @@ body {
     -webkit-transition: max-height 1s;
     -moz-transition: max-height 1s;
     transition: max-height 1s;
-
     top: auto;
     left: 10%;
     right: 10%;
     bottom: 30px;
     font-size: 1.3em;
     width: 80%;
-
     display: block;
-
     color: #DBDBDB;
     text-shadow: 0 -1px black;
     background: #424242;
-    border-top: 5px solid #0277bd;
+    border-top: 5px solid #0277BD;
 }
+
 #kiwi .notification.show { max-height: 500px; }
+
 #kiwi .notification .close {
     bottom: auto;
     font-size: 2em;
@@ -784,6 +785,7 @@ body {
     top: 0;
     width: 1em;
 }
+
 #kiwi .notification .close:hover { color: #DBDBDB; }
 
 /* Channel list Treeview */
