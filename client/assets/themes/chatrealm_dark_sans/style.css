@@ -469,6 +469,7 @@ body {
 /* Sidebar */
 #kiwi .right_bar {
     border-left: 2px solid #616161;
+    z-index: 0;
 }
 
 #kiwi .right_bar.disabled { width: 0 !important; }
