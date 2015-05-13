@@ -264,7 +264,7 @@ _kiwi.view.Channel = _kiwi.view.Panel.extend({
 
             // Get the lightness option from the theme. Defaults to 35.
             nick_lightness = (_.find(_kiwi.app.themes, function (theme) {
-                return theme.name.toLowerCase() === _kiwi.global.settings.get('theme').toLowerCase();
+                return theme.directory === _kiwi.global.settings.get('theme');
             }) || {}).nick_lightness;
 
             if (typeof nick_lightness !== 'number') {
