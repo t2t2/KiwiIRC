@@ -10,4 +10,3 @@ the commit ID's in the list bellow.
 * Theme loading is cachebusted on new build (c3bbbd8673)
 * Allow theme names to differ from directory (675c8b2f7c)
 * Make it easier for themes to use flexbox (4039e46850)
-* Fix IPv6 connections ([@see](https://forums.unrealircd.org/viewtopic.php?t=8382)) (4d37824cb7)
