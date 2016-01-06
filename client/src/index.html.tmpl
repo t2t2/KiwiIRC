@@ -582,13 +582,13 @@
                 // Load themes
                 if (opts.themes) {
                     $.each(opts.themes, function (theme_idx, theme) {
-                        var disabled = (opts.server_settings.client.settings.theme.toLowerCase() !== theme.directory),
-                        var link = $.parseHTML('<link rel="stylesheet" type="text/css" data-theme href="'+ opts.base_path + '/assets/themes/' + theme.directory + '/style.css?t=<%build_time%>" title="' + theme.name.toLowerCase() + '" />');
+                        var disabled = (opts.server_settings.client.settings.theme.toLowerCase() !== theme.directory);
+                        var link = $.parseHTML('<link rel="stylesheet" type="text/css" data-theme href="'+ opts.base_path + '/assets/themes/' + theme.directory + '/style.css?t=<%build_time%>" title="' + theme.directory + '" />');
                         
                         $(link).appendTo($('head'));
                         if (disabled) {
                             link.disabled = disabled;
-                        }https://github.com/t2t2/KiwiIRC/commits/development
+                        }
                     });
                 }
             });
